@@ -1,11 +1,7 @@
-import img from './img.png'
+import img from './assets/Logo.svg'
 
-const styli ={
-    width:'20%',
-    height:'50%'
-}
-function Header() {
-    return (<header><img src={img} style={styli}/></header>)
+function Header(props) {
+    return (<header> <img src={img}/> {props.children}</header>)
 }
 
 export default Header;
