@@ -4,6 +4,8 @@ import Header from './Header'
 import Nav from './Nav'
 import Main from './Main'
 import Footer from './Footer'
+import About from './About'
+import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 
 function App() {
   return (
@@ -11,8 +13,13 @@ function App() {
       <Header>
         <Nav/>
         </Header>
-        <Main/>
+        <Routes> 
+              <Route path="/" exact element={<Main/>}></Route>
+              <Route path="/about" element={<About/>}> </Route>
+              </Routes> 
       <Footer/>
+
+
     </div>
   );
 }

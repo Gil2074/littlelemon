@@ -50,7 +50,7 @@ nav a {
 
 main {
   display: grid;
-  background-color: blueviolet;
+
   align-content:center;
   grid-column: 1/span 12;
   grid-row: 3/10;
@@ -104,19 +104,25 @@ button {
   font-weight: bold;
   border: transparent;
   margin: 10px;
+  height: 03em;
 }
 
 .resbtn {
   width: 10em;
-  height: 03em;
   grid-column: 1;
     justify-self: center;
 }
 
 section.specials {
-  background-color: coral;
   grid-row: 4/6;
+  margin-bottom: 20px;
 }
+
+section.specials div , section.testimonials div {
+  display: flex;
+  justify-content: space-around;
+}
+
 
 section.testimonials {
   grid-row:  6/8;
