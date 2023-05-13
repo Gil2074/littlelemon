@@ -1,5 +1,8 @@
 import logo from './assets/restauranfood.jpg'
 import Card from './Card'
+import TesCard from './TesCard'
+import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react"; 
+import img2 from '../src/assets/restaurant.jpg'
 
 
 const projects = [ 
@@ -27,23 +30,33 @@ const projects = [
 
    const test = [ 
     { 
-      name: "Person1", 
-      description: "Handy tool bvia middleware️", 
+      rating: 1,
+      name: "Name1", 
+      description: "about p1", 
+      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
         getImageSrc: () => require("../src/assets/Mario and Adrian b.jpg"),
     }, 
     { 
-      name: "Person2", 
-      description: "Handy tool bvia middleware️", 
+      rating: 2,
+      name: "Name2", 
+      description: "about p2", 
+      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
+
         getImageSrc: () => require("../src/assets/Mario and Adrian b.jpg"),
     }, 
     { 
-      name: "Person3", 
-      description: "Handy tool bvia middleware️", 
+      rating: 3,
+      name: "Name3", 
+      description: "about p3", 
+      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
+
         getImageSrc: () => require("../src/assets/Mario and Adrian A.jpg"),
     },
     { 
-      name: "Person3", 
-      description: "Handy tool bvia middleware️", 
+      rating: 5,
+      name: "Name4", 
+      description: "about p4", 
+      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
         getImageSrc: () => require("../src/assets/Mario and Adrian A.jpg"),
     }
    ]; 
@@ -59,7 +72,7 @@ function Main() {
             <h3>Chicago</h3>
             <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, nisi est! Dolorem quia inventore nesciunt, ipsum neque culpa ea porro voluptatum. Voluptate ex ad nesciunt vel incidunt, velit cupiditate hic.
 </p>
-        <button className='resbtn btn'>Reserve table</button>
+        <button className='resbtn btn'><a href='/reserve'>Reserve table</a></button>
         <img src={logo}/>
         </section>
         <section className="specials">
@@ -83,17 +96,29 @@ function Main() {
         <section className="testimonials">
           <div>
             {test.map((project) => ( 
-         <Card 
+         <TesCard 
            key={project.name} 
-           title={project.name} 
+           name={project.name} 
            description={project.description} 
            url="https://github.com/rgommezz/react-native-offline" 
            imageSrc={project.getImageSrc()} 
+           testimonials={project.testimonials}
+           rating={project.rating} 
          /> 
        ))} 
             </div>
         </section>
-        <section className="about">test4</section>
+        <section className="about">
+        <HStack display='flex' justifyContent='space-between' maxHeight='300px'>
+            <VStack>
+            <h2>About us</h2>
+            <p>this text is about us</p>
+            </VStack>
+            <img src={img2} width='fitContent' height='75%'></img>
+            <img src={img2} width='fitContent%' height='75%'></img>
+            </HStack>
+          </section>
+
     </main>)
 }
 export default Main;
