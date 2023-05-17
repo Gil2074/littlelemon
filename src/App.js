@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css';
-import Header from './Header'
-import Nav from './Nav'
-import Main from './Main'
-import Footer from './Footer'
-import About from './About'
-import BookingPage from './BookingPage'
-import ConfirmedBooking from './ConfirmedBooking'
+import Header from './Components/Header'
+import Nav from './Components/Nav'
+import Main from './Components/Main'
+import Footer from './Components/Footer'
+import About from './Pages/About'
+import BookingPage from './Pages/BookingPage'
+import ConfirmedBooking from './Pages/ConfirmedBooking'
 import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 
 function App() {

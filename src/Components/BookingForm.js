@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import img2 from '../src/assets/restaurant.jpg'
-import icon1 from '../src/assets/dining-table.png'
-import icon2 from '../src/assets/terrace.png'
+import img2 from '../assets/restaurant.jpg'
+import icon1 from '../assets/dining-table.png'
+import icon2 from '../assets/terrace.png'
 
 
 function BookingForm({availableTimes,dispatch,submitForm}) {
     const [client,setClient] = useState(1)
     const [notif,setNotif] = useState(false)
     const [styling,setStyling] = useState({backgroundColor:''})
-    const [seatingoption,setSeatingoption] = useState('*')
+    const [seatingoption,setSeatingoption] = useState('Please select a seating option')
     const [formData,setFormData] = useState({
     firstName:'',
     lastName:'',
@@ -17,7 +17,8 @@ function BookingForm({availableTimes,dispatch,submitForm}) {
     time: null,
     comment:'',
     occasion: null,
-    clientnumb : client
+    clientnumb : client,
+    seating : seatingoption,
     } )
 
     
@@ -60,8 +61,6 @@ function BookingForm({availableTimes,dispatch,submitForm}) {
       }
 
 
-// ffffffffffffffffffffff
-
 
 const handleSubmit = (event) => {
     event.preventDefault()
@@ -71,10 +70,10 @@ const handleSubmit = (event) => {
 
     return <main className='reservemain'> <img src={img2}></img>
     <form onSubmit={handleSubmit}>
-        <label htmlFor='firstName' >Firstname:</label>
-        <input type='text' id='firstName' name='firstName' value={formData.firstName} onChange={changeVal} min={2} max={15} required/>
+        <label htmlFor='firstName' >Firstname: </label>
+        <input type='text' pattern="[A-Za-z]+" data-testid='firstName'id='firstName' name='firstName' value={formData.firstName} onChange={changeVal} min={2} max={15} required/>
         <label htmlFor='lastName' >LastName:</label>
-        <input type='text' id='lastName' name='lastName' value={formData.lastName} onChange={changeVal} min={2} max={15} required/>
+        <input type='text' pattern="[A-Za-z]+"id='lastName' name='lastName' value={formData.lastName} onChange={changeVal} min={2} max={15} required/>
         <label htmlFor='email' >Email:</label>
         <input type='email' id='email'  name='email' value={formData.email} onChange={changeVal} required/>
         <label htmlFor='date'>Date:</label>
@@ -88,24 +87,23 @@ const handleSubmit = (event) => {
 
         <label htmlFor='occasion'>Occasion:</label>
         <select name='occasion' value={formData.occasion} onChange={changeVal} required>
-            <option>Birthday</option>
-            <option>Anniversary</option>
-            <option>Casual</option>
+            <option aria-label='Birthday Choice'>Birthday</option>
+            <option aria-label='Anniversary Choice'>Anniversary</option>
+            <option  aria-label='Casual Choice'>Casual</option>
         </select>
         
         <label htmlFor='comment'>Additional Comment:</label>
         <textarea id='comment' alue={formData.comment} onChange={changeVal}/> 
         <label>Seating Preferences: {seatingoption}</label>
         <div className='radcontainer'>
-        <label>
-        
-        <input type='radio' name='seating' id='seating1' onClick={checkme} required/>
-        <img src={icon1}></img>
+        <label htmlFor='seating1'>
+        <input aria-label='Indoors Seating' type='radio' name='seating' id='seating1' onClick={checkme} required/>
+        <img src={icon1} alt='Indoors seating image'></img>
         </label>
         <label htmlFor='seating2'>
             
-        <input type='radio' name='seating' id='seating2' onClick={checkme} required/>
-        <img src={icon2}></img>
+        <input aria-label='Outdoors Seating' type='radio' name='seating' id='seating2' onClick={checkme} required/>
+        <img src={icon2} alt='Outdoors seating image'></img>
         </label>
         </div>
         
@@ -114,11 +112,11 @@ const handleSubmit = (event) => {
     Reservation table
     Number of people <span data-testid="clientNumber">{client}</span>
     <div className='btncontainer'>
-    <button className="adtbtn" data-testid='icrementbtn' type='button' onClick={addClient}>+</button>
-    <button className="mnsbtn"  type='button' onClick={reduceClient} disabled={notif} style={styling}>-</button>
+    <button  aria-label='Increase Guests Number' className="adtbtn" data-testid='icrementbtn' type='button' onClick={addClient}>+</button>
+    <button  aria-label='Decrease Guests Number' className="mnsbtn"  type='button' onClick={reduceClient} disabled={notif} style={styling}>-</button>
     </div>
     <p><b>Note: Keep in mind that you can not make any modifications after the submission for your order.</b></p>
-    <button type='submit' id='reservationBtn' onclick={submitForm}>Cofirm Reservation</button>
+    <button aria-label='Submit Form'  type='submit' id='reservationBtn' onclick={submitForm}>Cofirm Reservation</button>
     </form>
     </main>
 }

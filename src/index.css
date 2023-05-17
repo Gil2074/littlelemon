@@ -106,6 +106,10 @@ p{ color: #edefee;
   margin: 0;
 }
 
+section.hero p{
+  padding: 20px;
+}
+
 button {
   border-radius: 16px;
   background-color: #f4ce14;
@@ -288,4 +292,21 @@ textarea {
 
 form p {
   color: black;
+}
+
+input:focus:invalid {
+border : 2px solid red;
+outline: transparent;
+animation : shake 0.2s 2;
+}
+
+@keyframes shake{
+  25% {translate : 6px}
+  50% {translate : -6px}
+  75% {translate : 6px}
+}
+
+.ConfirmP {
+  color: black;
+  grid-column: span 12;
 }

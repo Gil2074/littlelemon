@@ -1,30 +1,37 @@
-import logo from './assets/restauranfood.jpg'
-import Card from './Card'
-import TesCard from './TesCard'
-import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react"; 
-import img2 from '../src/assets/restaurant.jpg'
 
+import Card from '../Components/Card'
+import TestimonyCard from '../Components/TestimonyCard'
+import Herosection from '../Components/Herosection';
+import About from '../Pages/About'
+import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react"; 
+import img2 from '../assets/restaurant.jpg'
+
+
+export const aboutuspara = `Little Lemon opened in 1995 by two Italian brothers, Adrian and Mario. 
+Despite the city's diversity, the two brothers recognized the lack of Mediterranean cuisine in Chicago, 
+and were inspired to bring the flavors of their hometown in Italy to the people of Chicago. The two brothers 
+continue to oversee the Little Lemon restaurant, nearly thirty years later.`
 
 const projects = [ 
     { 
       title: "Brushetta", 
-      price: '12.00$',
-      description: "Handy tool bvia middleware️", 
-        getImageSrc: () => require("../src/assets/download.jpg"),
+      price: '$5.99',
+      description: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil; made perfect for an evening dinner.", 
+        getImageSrc: () => require("../assets/download.jpg"),
     }, 
     { 
       title: "Greek Salad", 
-      price: '10.00$',
+      price: '$12.99',
       description: 
-        "A scrollable ",   
-      getImageSrc: () => require("../src/assets/greek salad.jpg"), 
+        "The famous Greek salad of crispy lettuce, peppers, olives and our Chicago styled feta cheese, garnished with crunchy garlic, rosemary croutons.",   
+      getImageSrc: () => require("../assets/greek salad.jpg"), 
     }, 
     { 
       title: "Lemon Desert", 
-      price: '9.00$',
+      price: '$5.00',
       description: 
-        "Nothing", 
-      getImageSrc: () => require("../src/assets/lemon dessert.jpg"), 
+        "This comes straight from Grandma's recipe book. Every last ingredient has been sourced and is as authentic as can be imagined.", 
+      getImageSrc: () => require("../assets/lemon dessert.jpg"), 
     }
    ]; 
 
@@ -34,7 +41,7 @@ const projects = [
       name: "Name1", 
       description: "about p1", 
       testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
-        getImageSrc: () => require("../src/assets/Mario and Adrian b.jpg"),
+        getImageSrc: () => require("../assets/Mario and Adrian b.jpg"),
     }, 
     { 
       rating: 2,
@@ -42,7 +49,7 @@ const projects = [
       description: "about p2", 
       testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
 
-        getImageSrc: () => require("../src/assets/Mario and Adrian b.jpg"),
+        getImageSrc: () => require("../assets/Mario and Adrian b.jpg"),
     }, 
     { 
       rating: 3,
@@ -50,31 +57,20 @@ const projects = [
       description: "about p3", 
       testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
 
-        getImageSrc: () => require("../src/assets/Mario and Adrian A.jpg"),
+        getImageSrc: () => require("../assets/Mario and Adrian A.jpg"),
     },
     { 
       rating: 5,
       name: "Name4", 
       description: "about p4", 
       testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
-        getImageSrc: () => require("../src/assets/Mario and Adrian A.jpg"),
+        getImageSrc: () => require("../assets/Mario and Adrian A.jpg"),
     }
    ]; 
 
-
-
-
-
 function Main() {
     return ( <main> 
-        <section className="hero">
-            <h1>Little Lemon</h1>
-            <h3>Chicago</h3>
-            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, nisi est! Dolorem quia inventore nesciunt, ipsum neque culpa ea porro voluptatum. Voluptate ex ad nesciunt vel incidunt, velit cupiditate hic.
-</p>
-        <button className='resbtn btn'><a href='/reserve'>Reserve table</a></button>
-        <img src={logo}/>
-        </section>
+        <Herosection/>
         <section className="specials">
             <div>
             <h2>This week specials!</h2>
@@ -96,7 +92,7 @@ function Main() {
         <section className="testimonials">
           <div>
             {test.map((project) => ( 
-         <TesCard 
+         <TestimonyCard 
            key={project.name} 
            name={project.name} 
            description={project.description} 
@@ -108,17 +104,7 @@ function Main() {
        ))} 
             </div>
         </section>
-        <section className="about">
-        <HStack display='flex' justifyContent='space-between' maxHeight='300px'>
-            <VStack>
-            <h2>About us</h2>
-            <p>this text is about us</p>
-            </VStack>
-            <img src={img2} width='fitContent' height='75%'></img>
-            <img src={img2} width='fitContent%' height='75%'></img>
-            </HStack>
-          </section>
-
+<About/>
     </main>)
 }
 export default Main;

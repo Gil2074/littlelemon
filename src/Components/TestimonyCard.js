@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import  {faStar} from '@fortawesome/free-solid-svg-icons'
 import { wrap } from "framer-motion";
-const TesCard = ({ name, description, imageSrc ,testimonials,rating}) => { 
+const TestimonyCard = ({ name, description, imageSrc ,testimonials,rating}) => { 
    return ( 
-     <VStack
+     <VStack 
      color="black" 
      backgroundColor="#edefee" 
      cursor="pointer" 
@@ -14,24 +14,25 @@ const TesCard = ({ name, description, imageSrc ,testimonials,rating}) => {
      pos='relative'
      borderRadius='20px'
      flexWrap='wrap'
+     aria-label='Testimony Card'
      >
-<Heading m='0'>  {
+<Heading m='0' aria-label='Testifier Rating'>  {
 [...Array(rating)].map((elementInArray, index) => ( 
     <span key={index}>
     <FontAwesomeIcon icon={faStar} style={{color: "#ceb71c"}  } size="xs" />
     </span>
 )) }
 </Heading>
-      <HStack display='flex' justifyContent='flex-start' minWidth='0' margin={5}>
-        <Image src={imageSrc} width='75%' h='75%' mtop='0' borderRadius={10} minWidth='0'/>
-        <VStack> <Heading as='h3'color='black'>{name}</Heading>
-        <Text color='black' mtop='0'>{description}</Text>
+      <HStack display='flex' justifyContent='flex-start' minWidth='0' margin={5} >
+        <Image src={imageSrc} alt='testifier image'width='75%' h='75%' mtop='0' borderRadius={10} minWidth='0'/>
+        <VStack> <Heading as='h3'color='black' aria-label='Testifier Name'>{name}</Heading>
+        <Text color='black' mtop='0' aria-label='Testifier Description'>{description}</Text>
         </VStack>
         </HStack>
-        <Text color='black' p='10px'>{testimonials}</Text>
+        <Text color='black' p='10px' aria-label='Testimony'>{testimonials} </Text>
      </VStack>
 
    ); 
 }; 
  
-export default TesCard; 
+export default TestimonyCard; 
