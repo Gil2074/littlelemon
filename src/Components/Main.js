@@ -35,36 +35,38 @@ const projects = [
     }
    ]; 
 
+
+
    const test = [ 
     { 
-      rating: 1,
-      name: "Name1", 
-      description: "about p1", 
-      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
-        getImageSrc: () => require("../assets/Mario and Adrian b.jpg"),
+      rating: 4,
+      name: `Lucas Banks`, 
+      description: "", 
+      testimonials:'The food, service, ambience and more was all superb!!! On behalf of us all, fight on!',
+        getImageSrc: () => require("../api/11.jpg"),
     }, 
     { 
       rating: 2,
-      name: "Name2", 
-      description: "about p2", 
-      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
+      name: "Logan Elliott", 
+      description: "", 
+      testimonials:'"The prices were absolutely disappointing. The waiters had extremely good mood.',
 
-        getImageSrc: () => require("../assets/Mario and Adrian b.jpg"),
+        getImageSrc: () => require("../api/68.jpg"),
     }, 
     { 
-      rating: 3,
-      name: "Name3", 
-      description: "about p3", 
-      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
+      rating: 5,
+      name: "Brianna Watts", 
+      description: "", 
+      testimonials:'The food was amazing, the staff were so polite and helpful.',
 
-        getImageSrc: () => require("../assets/Mario and Adrian A.jpg"),
+        getImageSrc: () => require("../api/54.jpg"),
     },
     { 
-      rating: 5,
-      name: "Name4", 
-      description: "about p4", 
-      testimonials:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.i ut aliqr rent,borum."',
-        getImageSrc: () => require("../assets/Mario and Adrian A.jpg"),
+      rating: 4,
+      name: "Tiffany Mcenzie", 
+      description: "", 
+      testimonials:'Great restaurant with a long history of providing our family a consistently excellent dining experience.',
+        getImageSrc: () => require("../api/59.jpg"),
     }
    ]; 
 
